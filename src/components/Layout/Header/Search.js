@@ -1,14 +1,14 @@
 import classNames from 'classnames/bind';
-import Stylest from './Header.module.scss';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Wrapper as Popper } from '~/components/Layout/components/Popper';
-import FilmItem from '../components/FilmItem';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { ContextFilm, setSlugMovie } from '~/context/contextSlug';
 import useDebounce from '~/hooks/useDebounce';
 import { axiosInstance } from '~/utils/axiosInStance';
 import { API_ENDPOINTS } from '~/utils/apiClient';
 import { useNavigate } from 'react-router-dom';
+import FilmItem from '../components/FilmItem';
+import Stylest from './Header.module.scss';
 
 const cx = classNames.bind(Stylest);
 function Search() {
@@ -22,9 +22,10 @@ function Search() {
             setSearchResult([]);
             return;
         }
+        // tạo custom hook riêng, ko có để như vầy trong component
         const fetchApi = async () => {
             try {
-                const response = await axiosInstance.get(API_ENDPOINTS.SEARCH + 'keyword=' + debouncedValue);
+                const response = await axiosInstance.get(`${API_ENDPOINTS.SEARCH}keyword=${debouncedValue}`);
                 const result = response.data.data.items.slice(0, 6);
                 console.log('response', response);
                 setSearchResult(result);
@@ -41,6 +42,7 @@ function Search() {
     };
 
     const handleChange = (e) => {
+        // ko có re-declare variable / state. Xài eslint cho quen đi
         const searchValue = e.target.value;
         setSearchValue(searchValue);
 
@@ -68,9 +70,9 @@ function Search() {
     return (
         <div>
             <HeadlessTippy
-                interactive={true}
+                interactive
                 visible={showResult && searchResult.length > 0}
-                placement={'bottom-start'}
+                placement="bottom-start"
                 render={(attrs) => (
                     <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                         <Popper>

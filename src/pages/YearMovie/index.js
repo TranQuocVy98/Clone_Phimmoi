@@ -11,8 +11,8 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Pagination from '~/components/Layout/components/Pagination/Pagination';
 import { useApiGetCategory } from '~/hooks/useApiGetCategory';
 import { API_ENDPOINTS } from '~/utils/apiClient';
-import styles from '../pages.module.scss';
 import { SkeletonUi } from '~/components/Layout/components/Skeleton';
+import styles from '../pages.module.scss';
 
 const cx = classNames.bind(styles);
 function YearMovie() {
@@ -41,39 +41,37 @@ function YearMovie() {
         dispatch(setSlugMovie(childData));
     };
     return (
-        <>
-            <div className={cx('wrapper')}>
-                <Header />
-                <IntroMovie contents={{ name: `/ PHIM ${year}` }} />
+        <div className={cx('wrapper')}>
+            <Header />
+            <IntroMovie contents={{ name: `/ PHIM ${year}` }} />
 
-                <div className={cx('container')}>
-                    <div className={cx('content')}>
-                        <div className={cx('list-movie')}>
-                            {isLoading && (
-                                <>
-                                    <SkeletonUi />
-                                    <SkeletonUi />
-                                    <SkeletonUi />
-                                    <SkeletonUi />
-                                </>
-                            )}
-                            {data?.map((movie) => (
-                                <MoiveItem
-                                    parentCallback={callbackFunction}
-                                    slug={movie.slug}
-                                    key={movie._id}
-                                    data={movie}
-                                    hide={true}
-                                />
-                            ))}
-                        </div>
-                        <Pagination data={totalMovie.totalItems} itemsPerPage={24} onChange={handlePageChange} />
+            <div className={cx('container')}>
+                <div className={cx('content')}>
+                    <div className={cx('list-movie')}>
+                        {isLoading && (
+                            <>
+                                <SkeletonUi />
+                                <SkeletonUi />
+                                <SkeletonUi />
+                                <SkeletonUi />
+                            </>
+                        )}
+                        {data?.map((movie) => (
+                            <MoiveItem
+                                parentCallback={callbackFunction}
+                                slug={movie.slug}
+                                key={movie._id}
+                                data={movie}
+                                hide
+                            />
+                        ))}
                     </div>
-                    <Sidebar />
+                    <Pagination data={totalMovie.totalItems} itemsPerPage={24} onChange={handlePageChange} />
                 </div>
-                <Footer />
+                <Sidebar />
             </div>
-        </>
+            <Footer />
+        </div>
     );
 }
 

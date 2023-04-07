@@ -1,19 +1,20 @@
 import classNames from 'classnames/bind';
-import Stylest from './Header.module.scss';
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faRightToBracket, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
+import { Link } from 'react-router-dom';
 import Category from './ Category';
 import Search from './Search';
-import { Link } from 'react-router-dom';
+import Stylest from './Header.module.scss';
+
 const cx = classNames.bind(Stylest);
 
 function Header() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('container')}>
-                <Link to={'/'}>
+                <Link to="/">
                     <img alt="MotPhimTV" title="Mọt phim TV" src={images.logo} />
                 </Link>
 

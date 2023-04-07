@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Rating } from 'react-simple-star-rating';
 import classNames from 'classnames/bind';
 import styles from './StarRating.module.scss';
+
 const cx = classNames.bind(styles);
 
 export default function StarRating() {
@@ -30,8 +31,8 @@ export default function StarRating() {
                 onPointerLeave={onPointerLeave}
                 onPointerMove={onPointerMove}
                 iconsCount={10}
-                transition={true}
-                allowFraction={true}
+                transition
+                allowFraction
                 size={17}
             />
             <div className={cx('average')}>

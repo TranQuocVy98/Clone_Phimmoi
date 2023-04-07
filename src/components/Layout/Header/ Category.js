@@ -14,14 +14,14 @@ function Category() {
     const years = ['2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014'];
     return (
         <div className={cx('menu-list')}>
-            <Link className={cx('list', 'active')} to={'/'}>
+            <Link className={cx('list', 'active')} to="/">
                 TRANG CHỦ
             </Link>
 
             <div>
                 <Tippy
-                    interactive={true}
-                    placement={'bottom-start'}
+                    interactive
+                    placement="bottom-start"
                     offset={[0, -2]}
                     render={(attrs) => (
                         <div className={cx('category')} tabIndex="-1" {...attrs}>
@@ -40,8 +40,8 @@ function Category() {
             </div>
             <div>
                 <Tippy
-                    interactive={true}
-                    placement={'bottom-start'}
+                    interactive
+                    placement="bottom-start"
                     offset={[0, -2]}
                     render={(attrs) => (
                         <div className={cx('country')} tabIndex="-1" {...attrs}>
@@ -60,8 +60,8 @@ function Category() {
             </div>
             <div>
                 <Tippy
-                    interactive={true}
-                    placement={'bottom-start'}
+                    interactive
+                    placement="bottom-start"
                     offset={[0, -2]}
                     render={(attrs) => (
                         <div className={cx('year')} tabIndex="-1" {...attrs}>
@@ -78,21 +78,21 @@ function Category() {
                     <div className={cx('list')}>PHIM MỚI </div>
                 </Tippy>
             </div>
-            <Link className={cx('list')} to={`/categoryMovie/PHIM BỘ`}>
+            <Link className={cx('list')} to="/categoryMovie/PHIM BỘ">
                 PHIM BỘ
             </Link>
-            <Link className={cx('list')} to={`/categoryMovie/PHIM LẺ`}>
+            <Link className={cx('list')} to="/categoryMovie/PHIM LẺ">
                 PHIM LẺ
             </Link>
-            <Link className={cx('list')} to={`/categoryMovie/PHIM THUYẾT MINH`}>
+            <Link className={cx('list')} to="/categoryMovie/PHIM THUYẾT MINH">
                 PHIM THUYẾT MINH
             </Link>
 
-            <Link className={cx('list')} to={`/categoryMovie/PHIM VIETSUB`}>
+            <Link className={cx('list')} to="/categoryMovie/PHIM VIETSUB">
                 PHIM VIETSUB
             </Link>
 
-            <Link className={cx('list')} to={`/categoryMovie/TV SHOW`}>
+            <Link className={cx('list')} to="/categoryMovie/TV SHOW">
                 TV SHOW
             </Link>
         </div>

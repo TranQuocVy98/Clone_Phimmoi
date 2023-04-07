@@ -6,11 +6,11 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useContext, useRef } from 'react';
-import MoiveItem from '../MoiveItem/MoiveItem';
 import { ContextFilm, setSlugMovie } from '~/context/contextSlug';
 import { useApiGetCategory } from '~/hooks/useApiGetCategory';
 import { API_ENDPOINTS } from '~/utils/apiClient';
 import { SkeletonUi } from '~/components/Layout/components/Skeleton';
+import MoiveItem from '../MoiveItem/MoiveItem';
 
 const cx = classNames.bind(Stylest);
 function SliderMovie(props) {
@@ -30,12 +30,12 @@ function SliderMovie(props) {
         dispatch(setSlugMovie(childData));
     };
     const ref = useRef(null);
-    let settingsNoModules = {
+    const settingsNoModules = {
         arrows: false,
         infinite: true,
-        speed: speed,
-        slidesToShow: slidesToShow,
-        slidesToScroll: slidesToScroll,
+        speed,
+        slidesToShow,
+        slidesToScroll,
         autoplay: autoplaySpeed,
         autoplaySpeed: 4000,
     };

@@ -10,19 +10,17 @@ const cx = classNames.bind(styles);
 
 function Home() {
     return (
-        <>
-            <div className={cx('wrapper')}>
-                <Header />
-                <SliderMovie />
-                <div className={cx('container')}>
-                    <div className={cx('content')}>
-                        <Content />
-                    </div>
-                    <Sidebar />
+        <div className={cx('wrapper')}>
+            <Header />
+            <SliderMovie />
+            <div className={cx('container')}>
+                <div className={cx('content')}>
+                    <Content />
                 </div>
-                <Footer />
+                <Sidebar />
             </div>
-        </>
+            <Footer />
+        </div>
     );
 }
 

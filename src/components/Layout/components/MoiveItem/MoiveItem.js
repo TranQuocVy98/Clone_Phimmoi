@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import Stylest from './MoiveItem.module.scss';
+
 const cx = classNames.bind(Stylest);
 
 function MoiveItem({ hide = false, slug, parentCallback, data }) {
@@ -14,9 +15,9 @@ function MoiveItem({ hide = false, slug, parentCallback, data }) {
                 <img
                     className={cx('img', `${hide && 'img-list'}`)}
                     src={`https://img.hiephanhthienha.com/uploads/movies/${data.thumb_url}`}
-                    alt={'images'}
+                    alt="images"
                 />
-                <i className={cx('icon-play')}></i>
+                <i className={cx('icon-play')} />
                 <p className={cx('title', `${hide && 'title-list'}`)}>{data.name}</p>
             </div>
         </Link>

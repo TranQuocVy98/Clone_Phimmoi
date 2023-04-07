@@ -4,10 +4,10 @@ export const ContextFilm = createContext();
 
 // Constant
 export const SET_SLUG_MOVIE = 'set_slug_movie';
-//Actions
+// Actions
 export const setSlugMovie = (payload) => ({
     type: SET_SLUG_MOVIE,
-    payload: payload,
+    payload,
 });
 export function Provider({ children }) {
     const initState = {

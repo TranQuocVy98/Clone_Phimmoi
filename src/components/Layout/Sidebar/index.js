@@ -31,59 +31,55 @@ function Sidebar() {
         setPage(page + 1);
     };
     return (
-        <>
-            <div className={cx('wrapper')}>
-                <div className={cx('container')}>
-                    <h4 className={cx('capital')}>Phim sắp chiếu</h4>
-
-                    <div className={cx('list-film')}>
-                        {movieNew.isLoading && <SkeletonSidebar />}
-                        {movieNew.data?.slice(0, 5).map((movie) => (
-                            <TrailerMovieItem
-                                data={movie}
-                                key={movie._id}
-                                slug={movie.slug}
-                                parentCallback={callbackFunction}
-                            />
-                        ))}
-                    </div>
-                    <h4 className={cx('capital')}>Trending</h4>
-
-                    <div className={cx('tabs')}>
-                        {Date.map((date) => (
-                            <div
-                                key={date}
-                                className={cx('tab', active === date ? 'active' : '')}
-                                onClick={() => handleClick(date)}
-                            >
-                                {date}
-                            </div>
-                        ))}
-                    </div>
-                </div>
+        <div className={cx('wrapper')}>
+            <div className={cx('container')}>
+                <h4 className={cx('capital')}>Phim sắp chiếu</h4>
 
                 <div className={cx('list-film')}>
-                    {movieTrending.isLoading && (
-                        <>
-                            <SkeletonSidebar height={40} width={280} />
-                            <SkeletonSidebar height={40} width={280} />
-                        </>
-                    )}
-                    {movieTrending.data?.slice(0, 10).map((movie) => (
-                        <div onClick={() => callbackFunction(movie.slug)} key={movie._id} className={cx('list')}>
-                            <span className={cx('number-rank')}>{count++}</span>
-                            <Link className={cx('text')} to={`/detailMovie/${movie.slug}`}>
-                                {movie.name}
-                            </Link>
-                            <div className={cx('count-view')}>
-                                {`${Math.floor(Math.random() * 1000)} lượt quan tâm`}
-                            </div>
+                    {movieNew.isLoading && <SkeletonSidebar />}
+                    {movieNew.data?.slice(0, 5).map((movie) => (
+                        <TrailerMovieItem
+                            data={movie}
+                            key={movie._id}
+                            slug={movie.slug}
+                            parentCallback={callbackFunction}
+                        />
+                    ))}
+                </div>
+                <h4 className={cx('capital')}>Trending</h4>
+
+                <div className={cx('tabs')}>
+                    {Date.map((date) => (
+                        <div
+                            key={date}
+                            className={cx('tab', active === date ? 'active' : '')}
+                            onClick={() => handleClick(date)}
+                        >
+                            {date}
                         </div>
                     ))}
                 </div>
-                <h4 className={cx('capital')}>Từ khoá nổi bật</h4>
             </div>
-        </>
+
+            <div className={cx('list-film')}>
+                {movieTrending.isLoading && (
+                    <>
+                        <SkeletonSidebar height={40} width={280} />
+                        <SkeletonSidebar height={40} width={280} />
+                    </>
+                )}
+                {movieTrending.data?.slice(0, 10).map((movie) => (
+                    <div onClick={() => callbackFunction(movie.slug)} key={movie._id} className={cx('list')}>
+                        <span className={cx('number-rank')}>{count++}</span>
+                        <Link className={cx('text')} to={`/detailMovie/${movie.slug}`}>
+                            {movie.name}
+                        </Link>
+                        <div className={cx('count-view')}>{`${Math.floor(Math.random() * 1000)} lượt quan tâm`}</div>
+                    </div>
+                ))}
+            </div>
+            <h4 className={cx('capital')}>Từ khoá nổi bật</h4>
+        </div>
     );
 }
 
