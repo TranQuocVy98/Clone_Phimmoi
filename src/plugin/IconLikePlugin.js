@@ -37,7 +37,7 @@ function IconLikePlugin() {
             data-action="like"
             data-size="small"
             data-share="true"
-        ></div>
+        />
     );
 }
 

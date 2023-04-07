@@ -16,18 +16,18 @@ function Pagination({ data, itemsPerPage, onChange }) {
 
     return (
         <ReactPaginate
-            previousLabel={'Trước'}
-            nextLabel={'Sau'}
+            previousLabel="Trước"
+            nextLabel="Sau"
             pageCount={pageCount}
             pageRangeDisplayed={2}
             marginPagesDisplayed={2}
             onPageChange={handlePageClick}
-            containerClassName={'pagination-container'}
-            previousLinkClassName={'pagination-page'}
-            nextLinkClassName={'pagination-page'}
-            pageClassName={'pagination-page'}
-            disabledClassName={'pagination-disabled'}
-            activeClassName={'pagination-active'}
+            containerClassName="pagination-container"
+            previousLinkClassName="pagination-page"
+            nextLinkClassName="pagination-page"
+            pageClassName="pagination-page"
+            disabledClassName="pagination-disabled"
+            activeClassName="pagination-active"
         />
     );
 }

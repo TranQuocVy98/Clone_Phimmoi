@@ -27,55 +27,53 @@ function WatchingMovie() {
         setWatchingMovie(movie.link_embed);
     };
     return (
-        <>
-            <div className={cx('wrapper')}>
-                <Header />
-                <IntroMovie contents={{ name, intro }} />
-                {(isLoading && <SkeletonDetail width={980} height={540} />) || (
-                    <Iframe
-                        width="980px"
-                        height="540px"
-                        src={watchingMovie || data.trailer_url}
-                        loading="eager"
-                        styles={{ border: 'none' }}
-                    />
-                )}
+        <div className={cx('wrapper')}>
+            <Header />
+            <IntroMovie contents={{ name, intro }} />
+            {(isLoading && <SkeletonDetail width={980} height={540} />) || (
+                <Iframe
+                    width="980px"
+                    height="540px"
+                    src={watchingMovie || data.trailer_url}
+                    loading="eager"
+                    styles={{ border: 'none' }}
+                />
+            )}
 
-                <div className={cx('episode')}>
-                    {episode?.map((movie) => (
-                        <Link
-                            onClick={() => handleEpisodeFilm(movie)}
-                            key={movie.name}
-                            className={cx('item', watchingMovie === movie.link_embed ? 'active' : '')}
-                        >
-                            Tập {movie.name}
-                        </Link>
-                    ))}
-                </div>
-
-                <div className={cx('movie')}>
-                    <h1 className={cx('name')}>{data?.name}</h1>
-                    <h2 className={cx('real-name')}>{data?.origin_name}</h2>
-                    <p className={cx('short-description')}>
-                        {data.content?.replace('<p>', '').replace('</p>', '')}[{' '}
-                        <Link to={`/detailMovie/${data.slug}`}>Xem thêm</Link>]
-                    </p>
-                    <StarRating />
-                </div>
-
-                <div className={cx('list')}>
-                    <div className={cx('list-film')}>
-                        <h2 className={cx('title-box')}>
-                            <FontAwesomeIcon icon={faStar} className={cx('star-item')} />
-                            <p>Có thể bạn muốn xem</p>
-                        </h2>
-                        <SliderMovie toggle={'none'} autoplaySpeed={false} />
-                        <TagMovie />
-                    </div>
-                </div>
-                <Footer />
+            <div className={cx('episode')}>
+                {episode?.map((movie) => (
+                    <Link
+                        onClick={() => handleEpisodeFilm(movie)}
+                        key={movie.name}
+                        className={cx('item', watchingMovie === movie.link_embed ? 'active' : '')}
+                    >
+                        Tập {movie.name}
+                    </Link>
+                ))}
             </div>
-        </>
+
+            <div className={cx('movie')}>
+                <h1 className={cx('name')}>{data?.name}</h1>
+                <h2 className={cx('real-name')}>{data?.origin_name}</h2>
+                <p className={cx('short-description')}>
+                    {data.content?.replace('<p>', '').replace('</p>', '')}[{' '}
+                    <Link to={`/detailMovie/${data.slug}`}>Xem thêm</Link>]
+                </p>
+                <StarRating />
+            </div>
+
+            <div className={cx('list')}>
+                <div className={cx('list-film')}>
+                    <h2 className={cx('title-box')}>
+                        <FontAwesomeIcon icon={faStar} className={cx('star-item')} />
+                        <p>Có thể bạn muốn xem</p>
+                    </h2>
+                    <SliderMovie toggle="none" autoplaySpeed={false} />
+                    <TagMovie />
+                </div>
+            </div>
+            <Footer />
+        </div>
     );
 }
 

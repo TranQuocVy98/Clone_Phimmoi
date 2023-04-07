@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
-import styles from './Sidebar.module.scss';
 import { Link } from 'react-router-dom';
 import images from 'src/assets/images';
+import styles from './Sidebar.module.scss';
 
 const cx = classNames.bind(styles);
 function TrailerMovieItem({ slug, parentCallback, data }) {

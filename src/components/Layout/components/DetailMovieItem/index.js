@@ -1,12 +1,13 @@
 import IconLikePlugin from '~/plugin/IconLikePlugin';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
+import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 import SliderMovie from '../SliderMovie';
 import styles from './DetailMovieItem.module.scss';
-import classNames from 'classnames/bind';
 import TagMovie from '../TagMovie/TagMovie';
 import StarRating from '../StarRating/StarRating';
-import { Link } from 'react-router-dom';
+
 const cx = classNames.bind(styles);
 
 function DetailMovieItem({ movie }) {
@@ -105,8 +106,8 @@ function DetailMovieItem({ movie }) {
                     <p> Phim đề cử </p>
                 </h2>
                 <SliderMovie
-                    toggle={'none'}
-                    hide={true}
+                    toggle="none"
+                    hide
                     slidesToShow={4}
                     slidesToScroll={1}
                     autoplaySpeed={false}

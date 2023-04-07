@@ -1,14 +1,10 @@
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { IconButton } from '@mui/material';
-import { PlayArrowSharp } from '@mui/icons-material';
+import { PlayArrowSharp, VolumeUp, Fullscreen, PauseSharp, VolumeOff } from '@mui/icons-material';
 import Button from '@mui/material/Button';
 import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
-import { VolumeUp } from '@mui/icons-material';
-import { Fullscreen } from '@mui/icons-material';
-import { PauseSharp } from '@mui/icons-material';
-import { VolumeOff } from '@mui/icons-material';
 import Popover from '@mui/material/Popover';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -16,9 +12,10 @@ import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutl
 import ArrowCircleRightOutlinedIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 import React, { useState } from 'react';
 import Tooltip from '@mui/material/Tooltip';
-import styles from './PlayVideo.module.scss';
 import classNames from 'classnames/bind';
 import { blueGrey } from '@mui/material/colors';
+import styles from './PlayVideo.module.scss';
+
 const primary = blueGrey[50];
 
 const cx = classNames.bind(styles);
@@ -117,7 +114,7 @@ function ControlIcons({
                 alignItems="center"
                 justifyContent="start"
                 style={{ paddingLeft: 16, paddingRight: 16 }}
-            ></Grid>
+            />
 
             <Grid
                 container

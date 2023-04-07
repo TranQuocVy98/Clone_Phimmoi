@@ -1,11 +1,12 @@
 import Container from '@mui/material/Container';
 import ReactPlayer from 'react-player';
 import classNames from 'classnames/bind';
-import styles from './PlayVideo.module.scss';
 import React, { useRef, useState } from 'react';
 import screenfull from 'screenfull';
-import ControlIcons from './ControlIcons';
 import Iframe from 'react-iframe';
+import ControlIcons from './ControlIcons';
+import styles from './PlayVideo.module.scss';
+
 const cx = classNames.bind(styles);
 const format = (seconds) => {
     if (isNaN(seconds)) {
@@ -19,9 +20,8 @@ const format = (seconds) => {
 
     if (hh) {
         return `${hh}:${mm.toString().padStart(2, '0')}:${ss}`;
-    } else {
-        return `${mm}:${ss}`;
     }
+    return `${mm}:${ss}`;
 };
 
 function PlayVideo() {
@@ -34,12 +34,12 @@ function PlayVideo() {
         seeking: false,
     });
 
-    //Destructure State in other to get the values in it
+    // Destructure State in other to get the values in it
     const { playing, muted, volume, playerbackRate, played, seeking } = playerstate;
     const playerRef = useRef(null);
     const playerDivRef = useRef(null);
 
-    //This function handles play and pause onchange button
+    // This function handles play and pause onchange button
     const handlePlayAndPause = () => {
         setPlayerState({ ...playerstate, playing: !playerstate.playing });
     };
@@ -60,11 +60,11 @@ function PlayVideo() {
     };
 
     const handleVolumeChange = (e, newValue) => {
-        setPlayerState({ ...playerstate, volume: parseFloat(newValue / 100), muted: newValue === 0 ? true : false });
+        setPlayerState({ ...playerstate, volume: parseFloat(newValue / 100), muted: newValue === 0 });
     };
 
     const handleVolumeSeek = (e, newValue) => {
-        setPlayerState({ ...playerstate, volume: parseFloat(newValue / 100), muted: newValue === 0 ? true : false });
+        setPlayerState({ ...playerstate, volume: parseFloat(newValue / 100), muted: newValue === 0 });
     };
 
     const handlePlayerRate = (rate) => {
@@ -107,8 +107,8 @@ function PlayVideo() {
             <Container style={{ display: 'none' }}>
                 <div ref={playerDivRef} className={cx('container')}>
                     <ReactPlayer
-                        width={'980px'}
-                        height={'100%'}
+                        width="980px"
+                        height="100%"
                         ref={playerRef}
                         url=""
                         playing={playing}
@@ -116,7 +116,7 @@ function PlayVideo() {
                         playbackRate={playerbackRate}
                         onProgress={handlePlayerProgress}
                         muted={muted}
-                        loop={true}
+                        loop
                     />
                     <ControlIcons
                         key={volume.toString()}

@@ -1,6 +1,7 @@
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import styles from './FilmItem.module.scss';
+
 const cx = classNames.bind(styles);
 
 function FilmItem({ data, slug, parentCallback }) {
